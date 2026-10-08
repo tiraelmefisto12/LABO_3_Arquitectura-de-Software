@@ -7,10 +7,14 @@ import java.util.Scanner;
 
 public class CursoUI {
 
-    private static final CursoService service =
-            new CursoService();
+    private final CursoService service;
 
-    public static void mostrarMenu(Scanner sc) {
+    public CursoUI(CursoService service) {
+        this.service = service;
+    }
+    // La UI no crea sus dependencias, las recibe.
+
+    public void mostrarMenu(Scanner sc) {
 
         int opcion;
 

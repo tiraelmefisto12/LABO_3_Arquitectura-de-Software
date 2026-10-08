@@ -4,6 +4,7 @@ import com.academico.presentation.EstudianteUI;
 import com.academico.presentation.CursoUI;
 //agregar
 import com.academico.application.EstudianteService;
+import com.academico.application.CursoService;
 import com.academico.domain.repository.EstudianteRepository;
 
 import  java.util.Scanner;
@@ -20,6 +21,7 @@ public class Main {
 
         // presentacion
         EstudianteUI estudianteUI=new EstudianteUI(service);
+        CursoUI cursoUI=new CursoUI(new CursoService());
 
 
         Scanner sc = new Scanner(System.in);
@@ -43,7 +45,7 @@ public class Main {
                     break;
 
                 case 2:
-                   CursoUI.mostrarMenu(sc);
+                    cursoUI.mostrarMenu(sc);
                     break;
 
                 case 0:
