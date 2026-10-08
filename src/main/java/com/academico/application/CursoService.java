@@ -1,17 +1,18 @@
 package com.academico.application;
 
 import com.academico.domain.model.Curso;
-import com.academico.infrastructure.CursoRepositoryJson;
+import com.academico.domain.repository.CursoRepository;
 
 import java.util.List;
 
 public class CursoService {
 
-    private final CursoRepositoryJson repository;
+    private final CursoRepository repository;
 
-    public CursoService() {
-        repository = new CursoRepositoryJson();
+    public CursoService(CursoRepository repository) {
+        this.repository = repository;
     }
+    // Inyección de dependencias: el servicio depende de la interfaz, no de la implementación.
 
     public void registrar(Curso curso) {
 

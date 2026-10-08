@@ -1,11 +1,13 @@
 package com.academico;
 import com.academico.infrastructure.EstudianteRepositoryJson;
+import com.academico.infrastructure.CursoRepositoryJson;
 import com.academico.presentation.EstudianteUI;
 import com.academico.presentation.CursoUI;
 //agregar
 import com.academico.application.EstudianteService;
 import com.academico.application.CursoService;
 import com.academico.domain.repository.EstudianteRepository;
+import com.academico.domain.repository.CursoRepository;
 
 import  java.util.Scanner;
 
@@ -15,13 +17,15 @@ public class Main {
         //agregar
         // infraestructura
         EstudianteRepository repository=new EstudianteRepositoryJson();
+        CursoRepository cursoRepository=new CursoRepositoryJson();
 
         //aplicacion
         EstudianteService service=new EstudianteService(repository);
+        CursoService cursoService=new CursoService(cursoRepository);
 
         // presentacion
         EstudianteUI estudianteUI=new EstudianteUI(service);
-        CursoUI cursoUI=new CursoUI(new CursoService());
+        CursoUI cursoUI=new CursoUI(cursoService);
 
 
         Scanner sc = new Scanner(System.in);
